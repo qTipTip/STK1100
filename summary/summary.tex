@@ -1,114 +1,115 @@
-%        File: summary.tex
-%     Created: Sun Feb 15 11:00 PM 2015 C
-% Last Change: Sun Feb 15 11:00 PM 2015 C
+%        File: summary_revised.tex
+%     Created: Mon Feb 16 05:00 AM 2015 C
+% Last Change: Mon Feb 16 05:00 AM 2015 C
 %
 \documentclass[a4paper]{report}
 
+% Mathematical typesetting
 \usepackage{amsmath}
 \usepackage{amsthm}
 
+% Maths related command definitions
+\newtheorem{definition}{Definition}
+\newtheorem{prop}{Proposition}
+\newtheorem{axiom}{Axioms}
+
 \begin{document}
+
 \chapter{Probability}
 
-\begin{section}{Sample Spaces and Events}
+\section{Sample Spaces and Events}
+\begin{definition} 
+  The \textbf{sample space} of an experiment, denoted by
+  $\mathcal{S}$, is the set of all possible outcomes of that experiment.
+\end{definition}
 
-\paragraph{The Sample Space of an Experiment:} The \textbf{sample space} of an
-experiment, denoted by $S$, is the set of all possible outcomes of that
-experiment.
-
-\paragraph{Events:} An \textbf{event} is any collection (subset) of outcomes
-contained in the sample space $S$. An event is said to be \textbf{simple} if it
+\begin{definition}
+An \textbf{event} is any collection (subset) of outcomes
+contained in the sample space $\mathcal{S}$. An event is said to be \textbf{simple} if it
 consists of exactly one outcome and \textbf{compound} if it consists of more
 than one outcome.
+\end{definition}
 
-\paragraph{Some Relations from Set Theory:}
+\begin{definition}
+  Some relations from set theory:
+  \begin{enumerate}
+    \item The \textbf{union} of two events $A$ and $B$, denoted by $A\cup B$ and
+      read ``$A$ or $B$'' is the event consisting of all outcomes that are
+      \textit{either in $A$ or in $B$ or in both events} (so that the union
+      includes outcomes for which both $A$ and $B$ occur as well as the outcomes
+      for which exactly one occurs) - that is, all outcomes in at least one of
+      the events.
+    \item The \textbf{intersection} of two events $A$ and $B$, denoted by $A \cap
+      B$ and read `` \textit{$A$ and $B$} '' is the event consisting of all
+      outcomes that are in \textit{both $A$ and $B$}.
+    \item The \textbf{complement} of an event $A$, denoted by $A'$, is the set of
+      all outcomes in $\mathcal{S}$ that are not contained in $A$.
+  \end{enumerate}
+\end{definition}
 
-\begin{enumerate}
-  \item The \textbf{union} of two events $A$ and $B$, denoted by $A\cup B$ and
-    read ``$A$ or $B$'' is the event consisting of all outcomes that are
-    \textit{either in $A$ or in $B$ or in both events} (so that the union
-    includes outcomes for which both $A$ and $B$ occur as well as the outcomes
-    for which exactly one occurs) - that is, all outcomes in at least one of
-    the events.
-  \item The \textbf{intersection} of two events $A$ and $B$, denoted by $A \cap
-    B$ and read `` \textit{$A$ and $B$} '' is the event consisting of all
-    outcomes that are in \textit{both $A$ and $B$}.
-  \item The \textbf{complement} of an event $A$, denoted by $A'$, is the set of
-    all outcomes in $S$ that are not contained in $A$.
-\end{enumerate}
+\begin{definition}
+  When $A$ and $B$ have no outcomes in common, they are said to be
+  \textbf{disjoint} or \textbf{mutually exclusive} events.  Mathematicians write
+  this compactly as $A \cup B = \emptyset$ where $\emptyset$ denotes the event
+  consisting of no outcomes whatsoever (the ``null'' or ``empty'' event).
+\end{definition}
 
-\paragraph{Mutually exlusive events:}
+\section{Axioms, Interpretations, and Properties of Probability}
+\begin{definition}
+  Basic properties of probability:
+  \begin{enumerate}
+    \item For any event $A, P(A) \geq 0$.
+    \item $P(S) = 1$.
+    \item If $A_1, A_2, A_3, \cdots $ is an infinite collection of disjoint events, then \[P(A_1 \cup A_2 \cup \cdots) = \sum\limits_{i=1}^\infty P(A_i).\]
+  \end{enumerate}
+\end{definition}
 
-When $A$ and $B$ have no outcomes in common, they are said to be
-\textbf{disjoint} or \textbf{mutually exclusive} events.  Mathematicians write
-this compactly as $A \cup B = \emptyset$ where $\emptyset$ denotes the event
-consisting of no outcomes whatsoever (the ``null'' or ``empty'' event).
-
-\end{section}
-\begin{section}{Axioms, Interpretations, and Properties of Probability}
-
-\paragraph{Basic properties of probability:}
-\begin{enumerate}
-  \item For any event $A, P(A) \geq 0$.
-  \item $P(S) = 1$.
-  \item If $A_1, A_2, A_3, \cdots $ is an infinite collection of disjoint events, then \[P(A_1 \cup A_2 \cup \cdots) = \sum\limits_{i=1}^\infty P(A_i).\]
-\end{enumerate}
-
-\begin{subsection}{Proposition}
-
-\quote{$P(\emptyset) = 0$ where $\emptyset$ is the null event. This in turn
+\begin{prop}
+$P(\emptyset) = 0$ where $\emptyset$ is the null event. This in turn
   implies that the property contained in Axiom 3 is valid for a \textit{finite}
-  collection of events.\footnote{Proof page 57.}}
+  collection of events.\footnote{Proof page 57.}
+\end{prop}
 
-\end{subsection}
-\begin{subsection}{Proposition}
-\quote{For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}}
-\end{subsection}
-\begin{subsection}{Proposition}
+\begin{prop}
+For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}
+\end{prop}
 
-\quote{For any event $A, P(A) \leq 1$.}
-\end{subsection}
-\begin{subsection}{Proposition}
-\quote{
+\begin{prop}
+  For any event $A, P(A) \leq 1$.
+\end{prop}
+
+\begin{prop}
   For any events $A$ and $B$,
   \begin{align*}
     P(A\cup B) &= P(A) + P(B) - P(A\cap B).\footnote{Proof page 61}\\
     P(A \cup B \cup C) &= P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C)  \\
-                       &- P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)
+                       &\qquad- P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)
   \end{align*}
-}
-\end{subsection}
-\end{section}
-\begin{section}{Counting Techniques}
+\end{prop}
 
-\paragraph{The Product Rule for Ordered Pairs}
-
-\begin{subsection}{Proposition}
-\quote{
+\section{Counting Techniques}
+\begin{prop}
   If the first element or object of an ordered pair can be selected in $n_1$
   ways, and for each of these $n_1$ ways the second element of the pair can be
   selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
-}
-\end{subsection}
+\end{prop}
 
-\paragraph{Product Rule for $K$-Tuples:}
-
-\quote{
+\begin{prop}
   Suppose a set consists of ordered collections of $k$ elements ($k$-tuples)
   and that there are $n_1$ possible choices for the first element; for each
   choice of the first element, there are $n_2$ possible choices of the second
   element;\dots; for each possible of the first $k-1$ elements, there are $n_k$
   choices for $k$th element. Then there are $n_1n_2\cdot\dots\cdot n_k$
   possible $k$-tuples.  
-}
+\end{prop}
 
-\paragraph{Permutations:}
+\begin{definition}
+  Any ordered sequence $k$ objects taken from a set of $n$ distinct objects is
+  called a \textbf{permutation} of size $k$ of the objects.  The numbers of
+  permutations of size $k$ that can be constructed from the $n$ objects is
+  denoted $P_{k, n}$.
+\end{definition}
 
-\quote{
-  Any ordered sequence $k$ objects taken from a set of $n$ distinct objects is called a \textbf{permutation} of size $k$ of the objects.
-  The numbers of permutations of size $k$ that can be constructed from the $n$ objects is denoted $P_{k, n}$.
-}
-\end{section}
 \end{document}
 
 
