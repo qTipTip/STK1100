@@ -9,12 +9,122 @@
 \usepackage{amsthm}
 
 % Maths related command definitions
+\theoremstyle{definition}
 \newtheorem{definition}{Definition}
+\newtheorem{procedure}{Procedure}
+\theoremstyle{plain}
 \newtheorem{prop}{Proposition}
 \newtheorem{axiom}{Axioms}
 
+
 \begin{document}
 
+\chapter{Overview and Descriptive Statistics}
+\section{Populations and Samples}
+\section{Pictorial and Tabular Methods in Descriptive Statistics}
+
+\begin{procedure}[Steps for constructing a stem-and-leaf display]
+\begin{enumerate}
+  \item Select one or more leading digits for the stem values. The trailing digits becomes the leaves.
+  \item List possible stem values in a vertical column.
+  \item Record the leaf for every observation beside the corresponding stem value.
+  \item Order the leaves from smallest to largest on each line.
+  \item Indicate the units for stems and ;eaves someplace in the display.
+\end{enumerate}
+\end{procedure}
+
+\begin{procedure}[A histogram for counting data]
+  First, determine the frequency and relative frequency of each $x$ value. Then
+  mark possible $x$ values on a horizontal scale. Above each calue, draw a
+  rectangle whose height is the relative frequency (or alternatively, the
+  frequency of that value).
+\end{procedure}
+
+\begin{procedure}[A histogram for measurement data: equal class widths]
+  Determine the frequency and relative frequency for each class. Mark the class
+  boundaries on a horizontal measurement axis.  Above each class interval, draw
+  a rectangle whose height is the corresponding relative frequence (or
+  frequency).
+\end{procedure}
+
+\begin{procedure}[A histogram for measurement data: unequal class widths]
+  After determining frequencies and relative frequencies, calculate the height
+  of each rectangle using the formula
+
+  \begin{equation*}
+    \text{rectangle height} = \frac{\text{relative frequency of the class}}{\text{class width}}
+  \end{equation*}
+
+  The resulting rectangle heights are usually called \textit{densities}, and
+  the vertical scale is the \textbf{density scale}. This prescription will also
+  work when class widths are equal.
+\end{procedure}
+
+\section{Measures of Location}
+
+\begin{definition}
+  The \textbf{sample mean} $\bar{x}$ of observations $x_1, x_2, \dots, x_n$ is given by
+  \begin{equation}
+    \bar{x} = \frac{x_1 + x_2 + \hdots + x_n}{n} = \frac{\sum\limits_{i=1}^n x_i}{n}.
+  \end{equation}
+  The numerator of $\bar{x}$ can be written more informally as $\sum\nolimits
+  x_i$ where the summation is over all sample observations.
+\end{definition}
+
+\begin{definition}
+  The \textbf{sample mean} is obtained by first ordering the $n$ observations
+  from smallest to largest (with any repeated values included so that every
+  sample observation appears in the ordered list). Then, 
+  
+  \[
+    \bar{x} = \begin{cases}
+      {} & \text{The single middle value if $n$ is odd} \\
+      {} & \text{The average of the two middle values if $n$ is even}
+    \end{cases}
+  \]
+\end{definition}
+
+\section{Measures of Variability}
+
+\begin{definition}
+  The \textbf{sample variance}, denoted by $s^2$, is given by
+  \begin{equation*}
+    s^2 = \frac{\left(\sum\nolimits(x_i - \bar{x}\right)^2}{n-1} = \frac{S_{xx}}{n_1}
+  \end{equation*}
+  The \textbf{sample standard deviation}, denoted by $s$, is the (positive)
+  square root of the variance:
+  \begin{equation*}
+    s = \sqrt{s^2}
+  \end{equation*}
+\end{definition}
+
+\begin{prop}
+  Let $x_1, x_2, \dots, x_n$ be a sample and $c$ be a constant.
+
+  \begin{enumerate}
+    \item If $y_1 = x_1 + c, y_2 = x_2 + c, \dots, y_n = x_n + c, $ then $s_y^2 = s_x^2$, and
+    \item If $y_1 = cx_1, \dots, y_n = cx_n, $ then $s_y^2 = c^2s_x^2, sy = |c|s_x, $
+  \end{enumerate}
+  where $s_x^2$ is the sample variance of the $x$'s and $s_y^2$ is the sample
+  variance of the $y$'s.
+\end{prop}
+
+\begin{definition}
+  Order the $n$ observations from smallest to largest and separate the samllest
+  half from the largest half; the median $\bar{x}$ is included in both halves
+  if $n$ is odd. Then the \textbf{lower fourth} is the median of the smallest
+  half and the \textbf{upper fourth} is the median of the largest half. A
+  measure of spread that is resistant to outliers is the \textbf{fourth spread}
+  $f_s$, given by
+  \begin{equation*}
+    f_s = \text{upper fourth - lower fourth}
+  \end{equation*}
+\end{definition}
+
+\begin{definition}
+  Any observation farthen than $1.5f_s$ from the closts fourth is an \textbf{outlier}. An outlier is \textbf{extreme} if it is more than $3f_s$ from the nearest
+  fourth, and it is \textbf{mild} otherwise.
+\end{definition}
 \chapter{Probability}
 
 \section{Sample Spaces and Events}
@@ -83,7 +193,7 @@ For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}
   \begin{align*}
     P(A\cup B) &= P(A) + P(B) - P(A\cap B).\footnote{Proof page 61}\\
     P(A \cup B \cup C) &= P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C)  \\
-                       &\qquad- P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)
+                       &\quad {}- P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)
   \end{align*}
 \end{prop}
 
@@ -94,7 +204,7 @@ For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}
   selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
 \end{prop}
 
-\begin{prop}
+\begin{prop}[Product rule for $K$-tuples]
   Suppose a set consists of ordered collections of $k$ elements ($k$-tuples)
   and that there are $n_1$ possible choices for the first element; for each
   choice of the first element, there are $n_2$ possible choices of the second
@@ -109,6 +219,60 @@ For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}
   permutations of size $k$ that can be constructed from the $n$ objects is
   denoted $P_{k, n}$.
 \end{definition}
+
+\begin{definition} 
+  For any positive integer $m$, $m!$ is read ``$m$ factorial''
+  and is defined by $m! = m(m-1)(m-2)\dots(2)(1)$. Also, $0! = 1$.
+\end{definition}
+
+\begin{definition}
+  Given a set of $n$ distinct objects, any unordered subset of size $k$ of the
+  objects is colled a \textbf{combination}. The number of combinations of size
+  $k$ that can be formed from $n$ will be denoted by ${n \choose k}$. This
+  notation is more common in probability
+  than $C_{k,n}$, which would be analogous to notation for permutations.
+\end{definition}
+\section{Conditional Probability}
+
+\begin{definition} 
+  For any two events $A$ and $B$ with $P(B) > 0$ , the
+  \textbf{conditional probability of $A$ given $B$ that has occured} is defined
+  by \begin{align*} P(A\mid B) = \frac{P(A\cap B)}{P(B)}.  \end{align*}
+\end{definition}
+
+\begin{prop}[The multiplication rule]
+  $P(A \cap B) = P(A \mid B) \cdot P(B)$
+\end{prop}
+
+\begin{prop}[The law of total probability]
+  Let $A_1, \dots, A_k$ be mutually exclusive and exhaustive events. Then for any other event $B$.
+  \begin{align*}
+    P(B)&= P(B \mid A_1) \cdot P(A_1) + \dots + P(B \mid A_k) \cdot P(A_k)\\
+        &= \sum\limits_{i=1}^{k} P(B \mid A_i)P(A_i)
+  \end{align*}
+\end{prop}
+
+\begin{prop}[Bayes' Theorem]
+  Let $A_1, \dots, A_k$ be a collection of mutually exclusive and exhaustive
+  events with $P(A_i) > 0$ for $i = 0,\dots,k$. Then for any other event $B$,
+  for which $P(B) > 0$
+  \begin{align*}
+    P(A_j \mid B) = \frac{P(A_j \cap B)}{P(B)} = \frac{P(B \mid A_j)P(A_j)}{\sum\limits_{i=1}^k P(B \mid A_i)P(A_i)} \qquad j = 0,\dots,k
+  \end{align*}
+\end{prop}
+
+\section{Independence}
+\begin{definition}
+  Two events $A$ and $B$ are \textbf{independent} if $P(A \mid B) = P(A)$ and
+  are \textbf{dependend} otherwise.
+\end{definition}
+
+\begin{prop}
+  $A$ and $B$ are independent if and only if
+  \begin{align*}
+    P(A \cap B) = P(A) \cdot P(B)  
+  \end{align*}
+\end{prop}
 
 \end{document}
 
