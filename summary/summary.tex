@@ -19,13 +19,16 @@
 
 \begin{document}
 
+\tableofcontents
+
 \chapter{Overview and Descriptive Statistics}
 \section{Populations and Samples}
 \section{Pictorial and Tabular Methods in Descriptive Statistics}
 
 \begin{procedure}[Steps for constructing a stem-and-leaf display]
-\begin{enumerate}
-  \item Select one or more leading digits for the stem values. The trailing digits becomes the leaves.
+\begin{enumerate} 
+  \item Select one or more leading digits for the stem values.
+        The trailing digits becomes the leaves.
   \item List possible stem values in a vertical column.
   \item Record the leaf for every observation beside the corresponding stem value.
   \item Order the leaves from smallest to largest on each line.
@@ -129,15 +132,15 @@
 
 \section{Sample Spaces and Events}
 \begin{definition} 
-  The \textbf{sample space} of an experiment, denoted by
-  $\mathcal{S}$, is the set of all possible outcomes of that experiment.
+  The \textbf{sample space} of an experiment, denoted by $\mathcal{S}$,
+  is the set of all possible outcomes of that experiment.
 \end{definition}
 
 \begin{definition}
-An \textbf{event} is any collection (subset) of outcomes
-contained in the sample space $\mathcal{S}$. An event is said to be \textbf{simple} if it
-consists of exactly one outcome and \textbf{compound} if it consists of more
-than one outcome.
+An \textbf{event} is any collection (subset) of outcomes contained in
+the sample space $\mathcal{S}$. An event is said to be \textbf{simple}
+if it consists of exactly one outcome and \textbf{compound} if it
+consists of more than one outcome.
 \end{definition}
 
 \begin{definition}
@@ -221,8 +224,8 @@ For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}
 \end{definition}
 
 \begin{definition} 
-  For any positive integer $m$, $m!$ is read ``$m$ factorial''
-  and is defined by $m! = m(m-1)(m-2)\dots(2)(1)$. Also, $0! = 1$.
+  For any positive integer $m$, $m!$ is read ``$m$ factorial'' and is defined
+  by $m! = m(m-1)(m-2)\dots(2)(1)$. Also, $0! = 1$.
 \end{definition}
 
 \begin{definition}
@@ -274,6 +277,100 @@ For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}
   \end{align*}
 \end{prop}
 
+\begin{definition}
+  Events $A_1, \dots, A_n$ are \textbf{mutually independent} if for
+  every $k (k = 2, 3, \dots, n)$ and every subset of indices $i_1, i_2,
+  \dots, i_k$, 
+  \begin{equation}
+    P(A_{i_1} \cap A_{i_2} \cap \dots \cap A_{i_k}) = P(A_{i_1})\cdot
+    P(A_{i_2})
+    \cdot \dots \cdot P(A_{i_k})
+  \end{equation}
+\end{definition}
+
+\chapter{Discrete Random Variables and Probability Distributions}
+
+\section{Random Variables}
+
+\begin{definition}
+  For a given sample space $\mathcal{S}$ of some experiment, a
+  \textbf{random variable (rv)} if any rule that associates a number
+  with each outcome in $\mathcal{S}$. In mathematical language, a random
+  variable is a function whose domain is the sample space and whose
+  range is the set of real numbers.
+\end{definition}
+
+\begin{definition}
+  Any random variable whose only possible values are $0$ and $1$ is
+  called a \textbf{Bernoulli random variable}.
+\end{definition}
+
+\begin{definition}
+  A \textbf{discrete} random variable is an rv whose possible values
+  either constitute a finite set or else can be listed in an infinite
+  sequence in which there is a first element, a second element, and so
+  on. A random variable is \textbf{continuous} if \textit{both} the
+  following apply: 
+
+  \begin{enumerate}
+    \item Its set of possible values consists either of all numbers in
+    a single interval on the number line (possibly infinite in extent,
+    e.g., from $-\infty$ to $\infty$) or all numbers in a disjoint union
+    of such intervals (e.g., $\left[ 0, 10 \right]\cup \left[ 20, 30
+    \right]$).
+    \item No possible value of the variable has positive probability,
+    that is, \\
+    $P(X = c) = 0$ for any possible value $c$.
+  \end{enumerate}
+\end{definition}
+
+\section{Probability Distributions for Discrete Random Variables}
+
+\begin{definition}
+  The \textbf{probability distribution} or \textbf{probability mass
+  function} (pmf) of a discrete rv is defined for every number $x$ by
+  $p(x) = P(X = x) = P(\text{all} s\in \mathcal{S} : X(s) =
+  x$.\footnote{$P(X = x)$ is read ``the probability that the rv $X$
+    assumes the value $x$''. For example, $P(X = 2)$ denotes the
+  probability that the resulting $X$ value is 2.}
+\end{definition}
+
+\begin{definition}
+  Suppose $p(x)$ depends on a qunatity that can be assigned any one a
+  number of possible values, with each different value determining a
+  different probability distribution. Such a quantity is called a
+  \textbf{parameter} of the distribution. The collection of all
+  probability distributions for different values of the parameter is
+  called a \textbf{family} of probability distributions.
+\end{definition}
+
+\begin{definition}
+  The \textbf{cumulative distribution function} (cdf) $F(x)$ of a
+  discrete rv $X$ with pmf $p(x)$ is defined for every number $x$ by
+  \begin{equation*}
+    F(X) = P(X \leq x) = \sum\limits_{y:y\leq x} p(y)
+  \end{equation*}
+  For any number $x, F(x)$ is the probability that the observed value of
+  $X$ will be at most $x$.
+\end{definition}
+
+\begin{prop}
+  For any two numbers $a$ and $b$ with $a \leq b$,
+  \begin{equation*}
+    P(a \leq X \leq b) = F(b) - F(a-)
+  \end{equation*}
+  where $F(a-)$ represents the maximum of $F(x)$ values to the left of
+  $a$. Equivalently, if $a$ is the limit of values of $x$ approaching
+  from the left, then $F(a-)$ is the limiting value of $F(x)$. In
+  particular, if the only possible values are integers and if $a$ and
+  $b$ are integers, then
+  \begin{align*}
+    P(a \leq X \leq b) &= P(X = a \text{ or } a+1 \text{ or } \dots \text{ or }
+    b) \\
+    &= F(b) - F(a-1)
+  \end{align*}
+  Taking $a = b$ yields $P(X = a) = F(a) - F(a-1)$ in this case.
+\end{prop}
 \end{document}
 
 
