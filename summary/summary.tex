@@ -384,6 +384,16 @@ For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}
   |x| \cdot p(x) < \infty$
 \end{definition}
 
+\begin{prop}
+  If the rv $X$ has a set of possible values $D$ and pmf $p(x)$, then
+  the expected value of any function $h(X)$, denoted by $E[h(X)]$ or
+  $\mu_{h(X)}$, is computed by
+  \begin{equation*}
+    E[h(X)] = \sum_D h(x) \cdot p(x)
+  \end{equation*}
+  assuming that $\sum_D |h(x)| \cdot p(x)$ is finite.
+\end{prop}
+
 \section{Moments and Moment Generating Functions}
 
 \section{The Binomial Probability Distribution}
