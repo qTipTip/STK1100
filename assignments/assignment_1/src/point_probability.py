@@ -35,6 +35,8 @@ for x in range(76+1):
 
 plt.plot(range(0, 77), point_prob, 'ro')
 plt.legend(["$p(x), \quad x = 0, 1, \ldots, 76$"])
+plt.xlabel("The number of years past 30, $x$")
+plt.ylabel("p(x)")
 plt.savefig("point_probability.pdf", format='pdf')
 
 print "Expected value of payment of compensation E(h(X)): ", E_hx()

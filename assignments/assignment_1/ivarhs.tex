@@ -12,6 +12,9 @@
 \usepackage[]{amsthm}
 \usepackage[]{amssymb} 
 
+% Graphics and figures
+\usepackage[]{graphicx}
+
 % Custom sectioning commands
 \newtheorem{prb}{Problem}
 \theoremstyle{definition}
@@ -212,6 +215,13 @@ Therefore,
 \end{equation}
 \end{sol}
 
+\paragraph{c)}
+Below is a graph of the point probability of dying within $x$ years past the age of 30.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\linewidth]{./src/point_probability.pdf}
+  \caption{Point probability $p(x)$ versus $x$}
+  \end{figure}
 \paragraph{d)}
 Let $h\left( X \right)$ denote the payment of compensation. Since we're working
 with an interest of $3\%$ the value of $B$ payed in $k$ years is equal to
