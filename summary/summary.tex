@@ -137,10 +137,10 @@
 \end{definition}
 
 \begin{definition}
-An \textbf{event} is any collection (subset) of outcomes contained in
-the sample space $\mathcal{S}$. An event is said to be \textbf{simple}
-if it consists of exactly one outcome and \textbf{compound} if it
-consists of more than one outcome.
+  An \textbf{event} is any collection (subset) of outcomes contained in
+  the sample space $\mathcal{S}$. An event is said to be \textbf{simple}
+  if it consists of exactly one outcome and \textbf{compound} if it
+  consists of more than one outcome.
 \end{definition}
 
 \begin{definition}
@@ -371,6 +371,41 @@ For any event $A, P(A) = 1 - P(A')$.\footnote{Proof page 60.}
   \end{align*}
   Taking $a = b$ yields $P(X = a) = F(a) - F(a-1)$ in this case.
 \end{prop}
+
+\section{Expected Values of Discrete Random Variables}
+\begin{definition}
+  Let $X$ be a discrete rv with set of possible values $D$ and pmf 
+  $p(x)$. The \textbf{expected value} or \textbf{mean value} of $X$,
+  denoted by $E(X)$ or $\mu_X$, is
+  \begin{equation*}
+    E(X) = \mu_X = \sum_{x \in D} x \cdot p(x)
+  \end{equation*}
+  This expected value will exist provided that $\quad \sum_{x \in D} 
+  |x| \cdot p(x) < \infty$
+\end{definition}
+
+\begin{prop}
+  If the rv $X$ has a set of possible values $D$ and pmf $p(x)$, then
+  the expected value of any function $h(X)$, denoted by $E[h(X)]$ or
+  $\mu_{h(X)}$, is computed by
+  \begin{equation*}
+    E[h(X)] = \sum_D h(x) \cdot p(x)
+  \end{equation*}
+  assuming that $\sum_D |h(x)| \cdot p(x)$ is finite.
+\end{prop}
+
+\begin{prop}
+  \begin{equation*}
+      E(aX + b) = a \cdot E(X) + b
+  \end{equation*}
+  (Or, using alternative notation,  $\mu_{aX + b} = a \cdot \mu_X + b$)
+\end{prop}
+
+\section{Moments and Moment Generating Functions}
+
+\section{The Binomial Probability Distribution}
+
+\section{Hypergeometric and Negative Binomial Distributions}
+
+\section{The Poisson Probability Distribution}
 \end{document}
-
-
