@@ -211,6 +211,90 @@ Therefore,
   p(x) = F(x) - F(x-1).
 \end{equation}
 \end{sol}
+
+\paragraph{d)}
+Let $h\left( X \right)$ denote the payment of compensation. Since we're working
+with an interest of $3\%$ the value of $B$ payed in $k$ years is equal to
+$B/1.03^k$.  We can therefore define $h(X)$ as the piecewise function
+\begin{equation}
+  \notag
+  h\left( X \right) = \left\{\begin{array}{lr}
+    \frac{1000000}{1.03^X} & : X \leq 35 \\
+    0 & : X \geq 35
+    \end{array}
+  \right..
+\end{equation}
+
+\paragraph{e)}
+
+The expected value of $h(X)$ is given given by the sum over the product of the
+probability of $X = x$ and the payment of compensation for $X = x$ from $x=0$
+to $x = 76$. In other words, 
+\begin{equation}
+  \notag
+  \mathbb{E}\left[ h(X) \right] = \sum_{x=0}^{76}h(x)p(x).
+\end{equation}
+Since $h(X)$ is defined to be zero for $X \geq 35$, the weighted probability is
+zero for any $X$'s greater than 35. Therefore we can disregard these
+terms.  Written out, this becomes:
+\begin{equation}
+  \label{eq:expct}
+  \mathbb{E}\left[ h(X) \right] = \sum_{x=0}^{34} \frac{1000000p(x)}{1.03^x} = 1000000\sum_{x=0}^{34}\frac{p(x)}{1.03^x}.
+\end{equation}
+
+\paragraph{f)}
+Using \eqref{eq:expct} and the point probabilities from \textbf{c} we can calculate
+the expected present value of payment of compensation.
+Running my \textsc{Python}-script, we get the value:
+\begin{equation}
+  \notag
+  \mathbb{E}\left[ h(X) \right] = 38579.72.
+\end{equation}
+
+\paragraph{g)}
+The woman pays an annual premium of $K$ from the age of $30$ and all the way to
+the age of $64$, if she is alive. This means, that we want to sum the annual
+premium from $k = 0$ all the way up to the minimum of $X$ and $34$. And then
+multiply it with $K$.  Therefore we can write the total premium payment as
+\begin{equation}
+  \notag
+  K \cdot \left( \frac{1 - (1/1.03)^{\min\left( X, 34 \right)+1}}{1 - 1/1.03} \right).
+\end{equation}
+
+\paragraph{h)}
+The expected present value of the womans total premium payments must
+neccessarily be given as $K \cdot \mathbb{E}\left[ g(X) \right]$ since $K$ is
+constant and $\mathbb{E}\left[ g(X) \right]$ is the expected number of annual
+payments.
+
+From the definition, we have
+%TODO Finish this
+\begin{align*}
+  \label{eq:}
+  \mathbb{E}\left[ g(X) \right] &= \sum_{x=0}^{76}g(x)p(x)
+\end{align*}
+
+\paragraph{i)}
+Using the formula from \textbf{h} and the point probability from \textbf{c}, we
+calculate the expected value of $g(X)$.  Running my \textsc{Python}-script I
+get the value:
+\begin{equation}
+  \notag
+  \mathbb{E}\left[ g(X) \right] \approx 21.76
+\end{equation}
+\paragraph{h)}
+
+The annual premium $K$ is given by:
+\begin{equation}
+  \notag
+  K \cdot \mathbb{E}\left[ g(X) \right] = \mathbb{E}\left[ h(X) \right].
+\end{equation}
+Solving this for $K$, we get:
+\begin{equation}
+  \notag
+  K \approx \frac{38579.72}{21.76} = 1772.96.
+\end{equation}
+
 \end{document}
 
 
