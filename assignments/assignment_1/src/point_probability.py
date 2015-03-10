@@ -1,5 +1,6 @@
-# A small python script for calculating the point
-# probability in problem 2, first mandatory assignment
+# A small python script for calculating the various
+# probabilities and expected values, 
+# first mandatory assignment
 # STK1100, V15 UiO.
 
 import matplotlib.pyplot as plt
@@ -27,7 +28,9 @@ def E_hx():
   return 1000000*sum([p(x)/(1.03**x) for x in range(0, 34)])
 
 def E_gx():
-  return (sum([p(x) for x in range(0, 77)]) - sum([(1/1.03)**(x+1)*p(x) for x in range(0, 34)])- sum([(1/1.03)**(34+1)*p(x) for x in range(34, 77)]))/(1 - 1/1.03)
+  return (sum([p(x) for x in range(0, 77)]) \
+        - sum([(1/1.03)**(x+1)*p(x) for x in range(0, 34)]) \
+        - sum([(1/1.03)**(34+1)*p(x) for x in range(34, 77)]))/(1 - 1/1.03)
 
 point_prob = []
 for x in range(76+1):

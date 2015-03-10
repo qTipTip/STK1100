@@ -15,6 +15,9 @@
 % Graphics and figures
 \usepackage[]{graphicx}
 
+% Codelistings
+\usepackage[]{minted} 
+
 % Custom sectioning commands
 \newtheorem{prb}{Problem}
 \theoremstyle{definition}
@@ -305,6 +308,8 @@ Solving this for $K$, we get:
   K \approx \frac{38579.72}{21.76} = 1772.96.
 \end{equation}
 
+\section*{Code}
+\inputminted[samepage=true]{python}{./src/point_probability.py}
 \end{document}
 
 
